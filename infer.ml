@@ -218,7 +218,7 @@ let rec apply_expr (subs: substitutions) (ae: aexpr): aexpr =
 
 (******************************************************************|
 |**********************   Main Interface  *************************|
-|******************************************************************|
+|******************************************************************)
 
 (* 1. annotate expression with placeholder types and generate constraints
    2. unify types based on constraints *)
