@@ -339,7 +339,7 @@ In this part, you will implement type inference. Put all of your type inference 
 
 ### Typing Constraint Generation
 
-As stated in the [lecture16][lecture16], type inference consists of three steps: (1) Annotate (2) Generate Constraints (3) Solve Constraints. In this part of the project, we will implement a function `gen` for both annotation and constraint generation:
+As stated in the [lecture13][lecture13], type inference consists of three steps: (1) Annotate (2) Generate Constraints (3) Solve Constraints. In this part of the project, we will implement a function `gen` for both annotation and constraint generation:
 ```ocaml
 let rec gen (env: environment) (e: expr): aexpr * typeScheme * (typeScheme * typeScheme) list = ...
 ```
@@ -360,7 +360,7 @@ type typeScheme =
     | T of string                           (type variable for an unknown type)
     | TFun of typeScheme * typeScheme       (function type)
 ```
-More information about type schemes can be found in the [lecture16][lecture16] slides. As an example, consider a function `fun x -> x 1`. Its OCaml type is `(int -> 'a) -> 'a` (the higher order function takes a function `x` as input and returns the results of applying the function `x` to 1). In our project, this type is written as  `TFun(TFun(TNum, T "'a"), T "'a")`.
+More information about type schemes can be found in the [lecture13][lecture13] slides. As an example, consider a function `fun x -> x 1`. Its OCaml type is `(int -> 'a) -> 'a` (the higher order function takes a function `x` as input and returns the results of applying the function `x` to 1). In our project, this type is written as  `TFun(TFun(TNum, T "'a"), T "'a")`.
 
 We defined the data structure for an expression annotated with types as `aexpr` in [microCamlTypes.ml](./microCamlTypes.ml):
 ```ocaml
@@ -546,7 +546,7 @@ The solution to the typing constraints is
 ```
 Intuitively, this solution is a substitution `[int->b/a, b/c]`. Applying this substitution to the typing constraints mentioned above would render the left-hand side and right-hand side of each constraint equivalent. With this solution, we have the type of `fun x -> x 1` as `(int -> b) -> b`. The pretty printer.
 
-We have already provided you a working implementation of `unify` in [infer.ml](./infer.ml). Please read the comment associated with `unify` in the code to understand how it executes. The implementation is similar to the pseudocode presented in [lecture16][lecture16]. Reviewing the examples covered in [lecture16][lecture16] would be beneficial.
+We have already provided you a working implementation of `unify` in [infer.ml](./infer.ml). Please read the comment associated with `unify` in the code to understand how it executes. The implementation is similar to the pseudocode presented in [lecture13][lecture13]. Reviewing the examples covered in [lecture13][lecture13] would be beneficial.
 
 However, there are two issues with this implementation that you need to resolve.
 
@@ -585,7 +585,7 @@ a: (int -> int)
 b: int
 ```
 
-The second issue in the existing `unify` implementation is that it does not consider occurs check. In [lecture16][lecture16], we discussed that the program `fun x -> x x` should be rejected by the type checker. Applying `gen` to this program should generate the following annotated program:
+The second issue in the existing `unify` implementation is that it does not consider occurs check. In [lecture13][lecture13], we discussed that the program `fun x -> x x` should be rejected by the type checker. Applying `gen` to this program should generate the following annotated program:
 ```ocaml
 (fun x -> ((x: a) (x: a)): c): (a -> b)
 ```
@@ -631,7 +631,7 @@ let e = (Fun("x", FunctionCall(ID "x", Int 1))) in
 let t = infer e in
 pp_string_of_type (t)   (* ((int -> 'a) -> 'a) *)
 ```
-The above program prints out the OCaml type of the program `fun x -> x 1`.
+The above program prints out the OCaml type of `fun x -> x 1`.
 
 
 
