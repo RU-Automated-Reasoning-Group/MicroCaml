@@ -2,11 +2,17 @@ open Lexer
 open Parser
 open Infer
 open MicroCamlTypes
+open TokenTypes
 
 (* Simple Expression Tests: *)
 let public_expr_simple_equal _ =
   let result = ([], Binop (Equal, (Int 1), (Int 1))) in
   let student = "1 = 1" |> tokenize |> parse_expr in
+  assert (student = result)
+
+let public_expr_simple_equal_lexer _ =
+  let result = [Tok_Int 1; Tok_Equal; Tok_Int 1] in
+  let student = "1 = 1" |> tokenize in
   assert (student = result)
 
 let public_expr_simple_equal_type _ =
@@ -21,6 +27,11 @@ let public_expr_simple_concat _ =
   let student = "\"Hello\" ^ \" World!\"" |> tokenize |> parse_expr in
   assert (student = result)
 
+let public_expr_simple_concat_lexer _ =
+  let result = [Tok_String "Hello"; Tok_Concat; Tok_String " World!" ] in
+  let student = "\"Hello\" ^ \" World!\"" |> tokenize in
+  assert (student = result)
+
 let public_expr_simple_concat_type _ =
   (* "\"Hello\" ^ \" World!\"" *)
   let prog = (Binop (Concat, (String "Hello"), (String " World!"))) in
@@ -31,6 +42,11 @@ let public_expr_simple_concat_type _ =
 let public_expr_simple_div _ =
   let result =  ([], Binop (Div, (Int 15), (Int 3))) in
   let student = "15 / 3" |> tokenize |> parse_expr in
+  assert (student = result)
+
+let public_expr_simple_div_lexer _ =
+  let result = [Tok_Int 15; Tok_Div; Tok_Int 3] in
+  let student = "15 / 3" |> tokenize in
   assert (student = result)
 
 let public_expr_simple_div_type _ =
@@ -45,6 +61,11 @@ let public_expr_simple_mult _ =
   let student = "5 * 3" |> tokenize |> parse_expr in
   assert (student = result)
 
+let public_expr_simple_mult_lexer _ =
+  let result = [Tok_Int 5; Tok_Mult; Tok_Int 3] in
+  let student = "5 * 3" |> tokenize in
+  assert (student = result)
+
 let public_expr_simple_mult_type _ =
   (* "5 * 3" *)
   let prog = (Binop (Mult, (Int 5), (Int 3))) in
@@ -55,6 +76,11 @@ let public_expr_simple_mult_type _ =
 let public_expr_simple_sub _ =
   let result = ([], Binop (Sub, (Int 3), (Int 2))) in
   let student = "3 - 2" |> tokenize |> parse_expr in
+  assert (student = result)
+
+let public_expr_simple_sub_lexer _ =
+  let result = [Tok_Int 3; Tok_Sub; Tok_Int 2] in
+  let student = "3 - 2" |> tokenize in
   assert (student = result)
 
 let public_expr_simple_sub_type _ =
@@ -69,6 +95,11 @@ let public_expr_simple_sum _ =
   let student = "1 + 2" |> tokenize |> parse_expr in
   assert (student = result)
 
+let public_expr_simple_sum_lexer _ =
+  let result = [Tok_Int 1; Tok_Add; Tok_Int 2] in
+  let student = "1 + 2" |> tokenize in
+  assert (student = result)
+
 let public_expr_simple_sum_type _ =
   (* "1 + 2" *)
   let prog = (Binop (Add, (Int 1), (Int 2))) in
@@ -79,6 +110,11 @@ let public_expr_simple_sum_type _ =
 let public_expr_single_and _ =
   let result = ([], Binop (And, (Bool true), (Bool true))) in
   let student = "true && true" |> tokenize |> parse_expr in
+  assert (student = result)
+
+let public_expr_single_and_lexer _ =
+  let result = [Tok_Bool true; Tok_And; Tok_Bool true] in
+  let student = "true && true" |> tokenize in
   assert (student = result)
 
 let public_expr_single_and_type _ =
@@ -93,6 +129,11 @@ let public_expr_single_bool _ =
   let student = "false" |> tokenize |> parse_expr in
   assert (student = result)
 
+let public_expr_single_bool_lexer _ =
+  let result = [Tok_Bool false] in
+  let student = "false" |> tokenize in
+  assert (student = result)
+
 let public_expr_single_bool_type _ =
   (* "false" *)
   let prog = ((Bool false)) in
@@ -103,6 +144,11 @@ let public_expr_single_bool_type _ =
 let public_expr_single_fun _ =
   let result = ([], Fun ("x", Binop (Add, ID "x", (Int 1)))) in
   let student = "fun x -> x + 1" |> tokenize |> parse_expr in
+  assert (student = result)
+
+let public_expr_single_fun_lexer _ =
+  let result = [Tok_Fun; Tok_ID "x"; Tok_Arrow; Tok_ID "x"; Tok_Add; Tok_Int 1] in
+  let student = "fun x -> x + 1" |> tokenize in
   assert (student = result)
 
 let public_expr_single_fun_type _ =
@@ -118,6 +164,11 @@ let public_expr_single_if _ =
   let student = "if 1 = 2 then false else true" |> tokenize |> parse_expr in
   assert (student = result)
 
+let public_expr_single_if_lexer _ =
+  let result = [Tok_If; Tok_Int 1; Tok_Equal; Tok_Int 2; Tok_Then; Tok_Bool false; Tok_Else; Tok_Bool true] in
+  let student = "if 1 = 2 then false else true" |> tokenize in
+  assert (student = result)
+
 let public_expr_single_if_type _ =
   (* if 1 = 2 then false else true *)
   let prog = (If (Binop (Equal, (Int 1), (Int 2)), (Bool false),
@@ -129,6 +180,11 @@ let public_expr_single_if_type _ =
 let public_expr_single_let _ =
   let result = ([], Let ("x", false, (Int 42), ID "x")) in
   let student = "let x = 42 in x" |> tokenize |> parse_expr in
+  assert (student = result)
+
+let public_expr_single_let_lexer _ =
+  let result = [Tok_Let; Tok_ID "x"; Tok_Equal; Tok_Int 42; Tok_In; Tok_ID "x"] in
+  let student = "let x = 42 in x" |> tokenize in
   assert (student = result)
 
 let public_expr_single_let_type _ =
@@ -143,6 +199,11 @@ let public_expr_single_notequal _ =
   let student = "1 <> 2" |> tokenize |> parse_expr in
   assert (student = result)
 
+let public_expr_single_notequal_lexer _ =
+  let result = [Tok_Int 1; Tok_NotEqual; Tok_Int 2] in
+  let student = "1 <> 2" |> tokenize in
+  assert (student = result)
+
 let public_expr_single_notequal_type _ =
   (* "1 <> 2" *)
   let prog = (Binop (NotEqual, (Int 1), (Int 2))) in
@@ -153,6 +214,11 @@ let public_expr_single_notequal_type _ =
 let public_expr_single_not _ =
   let result = ([], Not ((Bool true))) in
   let student = "not true" |> tokenize |> parse_expr in
+  assert (student = result)
+
+let public_expr_single_not_lexer _ =
+  let result = [Tok_Not; Tok_Bool true] in
+  let student = "not true" |> tokenize in
   assert (student = result)
 
 let public_expr_single_not_type _ =
@@ -167,6 +233,11 @@ let public_expr_single_number _ =
   let student = "42" |> tokenize |> parse_expr in
   assert (student = result)
 
+let public_expr_single_number_lexer _ =
+  let result = [Tok_Int 42] in
+  let student = "42" |> tokenize in
+  assert (student = result)
+
 let public_expr_single_number_type _ =
   (* "42" *)
   let prog = ((Int 42)) in
@@ -179,6 +250,11 @@ let public_expr_single_or _ =
   let student = "true || false" |> tokenize |> parse_expr in
   assert (student = result)
 
+let public_expr_single_or_lexer _ =
+  let result = [Tok_Bool true; Tok_Or; Tok_Bool false] in
+  let student = "true || false" |> tokenize in
+  assert (student = result)
+
 let public_expr_single_or_type _ =
   (* "true || false" *)
   let prog = (Binop (Or, (Bool true), (Bool false))) in
@@ -189,6 +265,11 @@ let public_expr_single_or_type _ =
 let public_expr_single_string _ =
   let result = ([], (String "Hello World!")) in
   let student = "\"Hello World!\"" |> tokenize |> parse_expr in
+  assert (student = result)
+
+let public_expr_single_string_lexer _ =
+  let result = [Tok_String "Hello World!"] in
+  let student = "\"Hello World!\"" |> tokenize in
   assert (student = result)
 
 let public_expr_single_string_type _ =
@@ -205,6 +286,11 @@ let public_expr_add1 _ =
   let student = "let add1 = fun x -> x + 1 in add1" |> tokenize |> parse_expr in
   assert (student = result)
 
+let public_expr_add1_lexer _ =
+  let result = [Tok_Let; Tok_ID "add1"; Tok_Equal; Tok_Fun; Tok_ID "x"; Tok_Arrow; Tok_ID "x"; Tok_Add; Tok_Int 1; Tok_In; Tok_ID "add1"] in
+  let student = "let add1 = fun x -> x + 1 in add1" |> tokenize in
+  assert (student = result)
+
 let public_expr_add1_type _ =
   (* let add1 = fun x -> x + 1 in add1 *)
   let prog = (Let ("add1", false, Fun ("x", Binop (Add, ID "x", (Int 1))), ID "add1")) in
@@ -219,6 +305,11 @@ let public_expr_apply _ =
   let student = "let apply = fun x -> fun y -> x y in let add1 = fun z -> z + 1 in (apply add1) 5" |> tokenize |> parse_expr in
   assert (student = result)
 
+let public_expr_apply_lexer _ =
+  let result = [Tok_Let; Tok_ID "apply"; Tok_Equal; Tok_Fun; Tok_ID "x"; Tok_Arrow; Tok_Fun; Tok_ID "y"; Tok_Arrow; Tok_ID "x"; Tok_ID "y"; Tok_In; Tok_Let; Tok_ID "add1"; Tok_Equal; Tok_Fun; Tok_ID "z"; Tok_Arrow; Tok_ID "z"; Tok_Add; Tok_Int 1; Tok_In; Tok_LParen; Tok_ID "apply"; Tok_ID "add1"; Tok_RParen; Tok_Int 5] in
+  let student = "let apply = fun x -> fun y -> x y in let add1 = fun z -> z + 1 in (apply add1) 5" |> tokenize in
+  assert (student = result)
+
 let public_expr_apply_type _ =
   (* let apply = fun x -> fun y -> x y in let add1 = fun z -> z + 1 in (apply add1) 5 *)
   let prog = (Let ("apply", false, Fun ("x", Fun ("y", FunctionCall (ID "x", ID "y"))),
@@ -231,6 +322,11 @@ let public_expr_apply_type _ =
 let public_expr_double_fun _ =
   let result = ([], Fun ("x", Fun ("y", Binop (Add, ID "x", ID "y")))) in
   let student = "fun x -> fun y -> x + y" |> tokenize |> parse_expr in
+  assert (student = result)
+
+let public_expr_double_fun_lexer _ =
+  let result = [Tok_Fun; Tok_ID "x"; Tok_Arrow; Tok_Fun; Tok_ID "y"; Tok_Arrow; Tok_ID "x"; Tok_Add; Tok_ID "y"] in
+  let student = "fun x -> fun y -> x + y" |> tokenize in
   assert (student = result)
 
 let public_expr_double_fun_type _ =
@@ -249,6 +345,11 @@ let public_expr_let_if _ =
   let student = "let sanity = if 1 = 1 then true else false in sanity" |> tokenize |> parse_expr in
   assert (student = result)
 
+let public_expr_let_if_lexer _ =
+  let result = [Tok_Let; Tok_ID "sanity"; Tok_Equal; Tok_If; Tok_Int 1; Tok_Equal; Tok_Int 1; Tok_Then; Tok_Bool true; Tok_Else; Tok_Bool false; Tok_In; Tok_ID "sanity"] in
+  let student = "let sanity = if 1 = 1 then true else false in sanity" |> tokenize in
+  assert (student = result)
+
 let public_expr_let_if_type _ =
   (* let sanity = if 1 = 1 then true else false in sanity *)
   let prog = (Let ("sanity", false,
@@ -265,6 +366,11 @@ let public_expr_let_fun _ =
   let student = "let abc = fun a -> a + 1 in abc 1" |> tokenize |> parse_expr in
   assert (student = result)
 
+let public_expr_let_fun_lexer _ =
+  let result = [Tok_Let; Tok_ID "abc"; Tok_Equal; Tok_Fun; Tok_ID "a"; Tok_Arrow; Tok_ID "a"; Tok_Add; Tok_Int 1; Tok_In; Tok_ID "abc"; Tok_Int 1] in
+  let student = "let abc = fun a -> a + 1 in abc 1" |> tokenize in
+  assert (student = result)
+
 let public_expr_let_fun_type _ =
   (* let abc = fun a -> a + 1 in abc 1 *)
   let prog = (Let ("abc", false, Fun ("a", Binop (Add, ID "a", (Int 1))),
@@ -276,6 +382,11 @@ let public_expr_let_fun_type _ =
 let public_expr_minus_one _ =
   let result = ([], Let ("x", false, Binop (Sub, (Int 1), (Int 1)), ID "x")) in
   let student = "let x = 1-1 in x" |> tokenize |> parse_expr in
+  assert (student = result)
+
+let public_expr_minus_one_lexer _ =
+  let result = [Tok_Let; Tok_ID "x"; Tok_Equal; Tok_Int 1; Tok_Sub; Tok_Int 1; Tok_In; Tok_ID "x"] in
+  let student = "let x = 1-1 in x" |> tokenize in
   assert (student = result)
 
 let public_expr_minus_one_type _ =
@@ -305,6 +416,22 @@ let public_expr_nested_let _ =
   let student = "let a = 1 in let b = 2 in let c = 3 in let d = 4 in let e = 5 in let f = 6 in let g = 7 in let h = 8 in let i = 9 in let j = 10 in a+b+c+d+e+f+g+h" |> tokenize |> parse_expr in
   assert (student = result)
 
+
+let public_expr_nested_let_lexer _ =
+  let result = [Tok_Let; Tok_ID "a"; Tok_Equal; Tok_Int 1; Tok_In;
+                  Tok_Let; Tok_ID "b"; Tok_Equal; Tok_Int 2; Tok_In;
+                    Tok_Let; Tok_ID "c"; Tok_Equal; Tok_Int 3; Tok_In;
+                      Tok_Let; Tok_ID "d"; Tok_Equal; Tok_Int 4; Tok_In;
+                        Tok_Let; Tok_ID "e"; Tok_Equal; Tok_Int 5; Tok_In;
+                          Tok_Let; Tok_ID "f"; Tok_Equal; Tok_Int 6; Tok_In;
+                            Tok_Let; Tok_ID "g"; Tok_Equal; Tok_Int 7; Tok_In;
+                              Tok_Let; Tok_ID "h"; Tok_Equal; Tok_Int 8; Tok_In;
+                                Tok_Let; Tok_ID "i"; Tok_Equal; Tok_Int 9; Tok_In;
+                                  Tok_Let; Tok_ID "j"; Tok_Equal; Tok_Int 10; Tok_In;
+                                    Tok_ID "a"; Tok_Add; Tok_ID "b"; Tok_Add; Tok_ID "c"; Tok_Add; Tok_ID "d"; Tok_Add; Tok_ID "e"; Tok_Add; Tok_ID "f"; Tok_Add; Tok_ID "g"; Tok_Add; Tok_ID "h"] in
+  let student = "let a = 1 in let b = 2 in let c = 3 in let d = 4 in let e = 5 in let f = 6 in let g = 7 in let h = 8 in let i = 9 in let j = 10 in a+b+c+d+e+f+g+h" |> tokenize in
+  assert (student = result)
+
 let public_expr_nested_let_type _ =
   (* let a = 1 in let b = 2 in let c = 3 in let d = 4 in let e = 5 in let f = 6 in let g = 7 in let h = 8 in let i = 9 in let j = 10 in a+b+c+d+e+f+g+h *)
   let prog = (
@@ -332,6 +459,11 @@ let public_expr_sub1 _ =
   let student = "let sub1 = fun x -> x - 1 in sub1" |> tokenize |> parse_expr in
   assert (student = result)
 
+let public_expr_sub1_lexer _ =
+  let result = [Tok_Let; Tok_ID "sub1"; Tok_Equal; Tok_Fun; Tok_ID "x"; Tok_Arrow; Tok_ID "x"; Tok_Sub; Tok_Int 1; Tok_In; Tok_ID "sub1"] in
+  let student = "let sub1 = fun x -> x - 1 in sub1" |> tokenize in
+  assert (student = result)
+
 let public_expr_sub1_type _ =
   (* let sub1 = fun x -> x - 1 in sub1 *)
   let prog = (Let ("sub1", false, Fun ("x", Binop (Sub, ID "x", (Int 1))), ID "sub1")) in
@@ -344,6 +476,11 @@ let public_expr_fact _ =
                   Fun("x", If (Binop(LessEqual, ID "x", Int 0), Int 1, Binop(Mult, ID "x", FunctionCall(ID "f", Binop(Sub, ID "x", Int 1))))),
                   FunctionCall(ID "f", Int 5))) in
   let student = "let rec f = fun x -> if x <= 0 then 1 else x * f(x-1) in f 5" |> tokenize |> parse_expr in
+  assert (student = result)
+
+let public_expr_fact_lexer _ =
+  let result = [Tok_Let; Tok_Rec; Tok_ID "f"; Tok_Equal; Tok_Fun; Tok_ID "x"; Tok_Arrow; Tok_If; Tok_ID "x"; Tok_LessEqual; Tok_Int 0; Tok_Then; Tok_Int 1; Tok_Else; Tok_ID "x"; Tok_Mult; Tok_ID "f"; Tok_LParen; Tok_ID "x"; Tok_Sub; Tok_Int 1; Tok_RParen; Tok_In; Tok_ID "f"; Tok_Int 5] in
+  let student = "let rec f = fun x -> if x <= 0 then 1 else x * f(x-1) in f 5" |> tokenize in
   assert (student = result)
 
 let public_expr_fact_type _ =
@@ -360,14 +497,29 @@ let public_expr_ho _ =
   let student = "fun x -> x 1" |> tokenize |> parse_expr in
   assert (student = result)
 
+let public_expr_ho_lexer _ =
+  let result = [Tok_Fun; Tok_ID "x"; Tok_Arrow; Tok_ID "x"; Tok_Int 1] in
+  let student = "fun x -> x 1" |> tokenize in
+  assert (student = result)
+
 let public_expr_ho2 _ =
   let result = ([], Fun("a", Fun("b", FunctionCall(ID "a", FunctionCall(ID "a", ID "b"))))) in
   let student = "fun a -> (fun b -> a(a b))" |> tokenize |> parse_expr in
   assert (student = result)
 
+let public_expr_ho2_lexer _ =
+  let result = [Tok_Fun; Tok_ID "a"; Tok_Arrow; Tok_LParen; Tok_Fun; Tok_ID "b"; Tok_Arrow; Tok_ID "a"; Tok_LParen; Tok_ID "a"; Tok_ID "b"; Tok_RParen; Tok_RParen] in
+  let student = "fun a -> (fun b -> a(a b))" |> tokenize in
+  assert (student = result)
+
 let public_expr_ho3 _ =
   let result = ([], Fun("c", Fun("d", Fun ("e", FunctionCall(FunctionCall(ID "e", ID "c"), ID "d"))))) in
   let student = "fun c -> (fun d -> (fun e -> (e c) d))" |> tokenize |> parse_expr in
+  assert (student = result)
+
+let public_expr_ho3_lexer _ =
+  let result = [Tok_Fun; Tok_ID "c"; Tok_Arrow; Tok_LParen; Tok_Fun; Tok_ID "d"; Tok_Arrow; Tok_LParen; Tok_Fun; Tok_ID "e"; Tok_Arrow; Tok_LParen; Tok_ID "e"; Tok_ID "c"; Tok_RParen; Tok_ID "d"; Tok_RParen; Tok_RParen] in
+  let student = "fun c -> (fun d -> (fun e -> (e c) d))" |> tokenize in
   assert (student = result)
 
 let public_expr_ho_type _ =
@@ -404,9 +556,19 @@ let public_expr_hoapp _ =
   let student = "(fun x -> x 1) (fun x -> x + 1)" |> tokenize |> parse_expr in
   assert (student = result)
 
+let public_expr_hoapp_lexer _ =
+  let result = [Tok_LParen; Tok_Fun; Tok_ID "x"; Tok_Arrow; Tok_ID "x"; Tok_Int 1; Tok_RParen; Tok_LParen; Tok_Fun; Tok_ID "x"; Tok_Arrow; Tok_ID "x"; Tok_Add; Tok_Int 1; Tok_RParen] in
+  let student = "(fun x -> x 1) (fun x -> x + 1)" |> tokenize in
+  assert (student = result)
+
 let public_expr_hoapp2 _ =
   let result = ([], FunctionCall (Fun("a", Fun("b", FunctionCall(ID "a", FunctionCall(ID "a", ID "b")))), Fun("c", Fun("d", Fun ("e", FunctionCall(FunctionCall(ID "e", ID "c"), ID "d")))))) in
   let student = "(fun a -> (fun b -> a(a b))) (fun c -> (fun d -> (fun e -> (e c) d)))" |> tokenize |> parse_expr in
+  assert (student = result)
+
+let public_expr_hoapp2_lexer _ =
+  let result = [Tok_LParen; Tok_Fun; Tok_ID "a"; Tok_Arrow; Tok_LParen; Tok_Fun; Tok_ID "b"; Tok_Arrow; Tok_ID "a"; Tok_LParen; Tok_ID "a"; Tok_ID "b"; Tok_RParen; Tok_RParen; Tok_RParen; Tok_LParen; Tok_Fun; Tok_ID "c"; Tok_Arrow; Tok_LParen; Tok_Fun; Tok_ID "d"; Tok_Arrow; Tok_LParen; Tok_Fun; Tok_ID "e"; Tok_Arrow; Tok_LParen; Tok_ID "e"; Tok_ID "c"; Tok_RParen; Tok_ID "d"; Tok_RParen; Tok_RParen; Tok_RParen] in
+  let student = "(fun a -> (fun b -> a(a b))) (fun c -> (fun d -> (fun e -> (e c) d)))" |> tokenize in
   assert (student = result)
 
 let public_expr_hoapp_type _ =
@@ -427,6 +589,11 @@ let public_expr_hoapp2_type _ =
 let public_expr_xx _ =
   let result = ([], Fun("x", FunctionCall(ID "x", ID "x"))) in
   let student = "fun x -> x x" |> tokenize |> parse_expr in
+  assert (student = result)
+
+let public_expr_xx_lexer _ =
+  let result = [Tok_Fun; Tok_ID "x"; Tok_Arrow; Tok_ID "x"; Tok_ID "x"] in
+  let student = "fun x -> x x" |> tokenize in
   assert (student = result)
 
 let public_expr_xx_type _ =
@@ -591,6 +758,138 @@ let main () =
     Printf.eprintf "there was an error: %s %s\n" msg stack) in
 
 
+    (*********************************)
+    (***** Test cases for Lexing *****)
+    (*********************************)
+
+    let _ = try public_expr_simple_equal_lexer()
+      with e -> (error_count := !error_count + 1;
+      let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
+      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    let _ = try public_expr_simple_concat_lexer()
+      with e -> (error_count := !error_count + 1;
+      let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
+      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    let _ = try public_expr_simple_div_lexer()
+      with e -> (error_count := !error_count + 1;
+      let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
+      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    let _ = try public_expr_simple_mult_lexer()
+      with e -> (error_count := !error_count + 1;
+      let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
+      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    let _ = try public_expr_simple_sub_lexer()
+      with e -> (error_count := !error_count + 1;
+      let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
+      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    let _ = try public_expr_simple_sum_lexer()
+      with e -> (error_count := !error_count + 1;
+      let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
+      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    let _ = try public_expr_single_and_lexer()
+      with e -> (error_count := !error_count + 1;
+      let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
+      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    let _ = try public_expr_single_bool_lexer()
+      with e -> (error_count := !error_count + 1;
+      let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
+      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    let _ = try public_expr_single_fun_lexer()
+      with e -> (error_count := !error_count + 1;
+      let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
+      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    let _ = try public_expr_single_if_lexer()
+      with e -> (error_count := !error_count + 1;
+      let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
+      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    let _ = try public_expr_single_let_lexer()
+      with e -> (error_count := !error_count + 1;
+      let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
+      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    let _ = try public_expr_single_notequal_lexer()
+      with e -> (error_count := !error_count + 1;
+      let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
+      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    let _ = try public_expr_single_not_lexer()
+      with e -> (error_count := !error_count + 1;
+      let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
+      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    let _ = try public_expr_single_number_lexer()
+      with e -> (error_count := !error_count + 1;
+      let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
+      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    let _ = try public_expr_single_or_lexer()
+      with e -> (error_count := !error_count + 1;
+      let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
+      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    let _ = try public_expr_single_string_lexer()
+      with e -> (error_count := !error_count + 1;
+      let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
+      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+
+    let _ = try public_expr_add1_lexer()
+      with e -> (error_count := !error_count + 1;
+      let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
+      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    let _ = try public_expr_apply_lexer()
+      with e -> (error_count := !error_count + 1;
+      let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
+      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    let _ = try public_expr_double_fun_lexer()
+      with e -> (error_count := !error_count + 1;
+      let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
+      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    let _ = try public_expr_let_if_lexer()
+      with e -> (error_count := !error_count + 1;
+      let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
+      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    let _ = try public_expr_let_fun_lexer()
+      with e -> (error_count := !error_count + 1;
+      let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
+      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    let _ = try public_expr_minus_one_lexer()
+      with e -> (error_count := !error_count + 1;
+      let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
+      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    let _ = try public_expr_nested_let_lexer()
+      with e -> (error_count := !error_count + 1;
+      let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
+      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    let _ = try public_expr_sub1_lexer()
+      with e -> (error_count := !error_count + 1;
+      let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
+      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    let _ = try public_expr_fact_lexer()
+      with e -> (error_count := !error_count + 1;
+      let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
+      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+
+    let _ = try public_expr_ho_lexer()
+      with e -> (error_count := !error_count + 1;
+      let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
+      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    let _ = try public_expr_ho2_lexer()
+      with e -> (error_count := !error_count + 1;
+      let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
+      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    let _ = try public_expr_ho3_lexer()
+      with e -> (error_count := !error_count + 1;
+      let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
+      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    let _ = try public_expr_hoapp_lexer()
+      with e -> (error_count := !error_count + 1;
+      let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
+      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    let _ = try public_expr_hoapp2_lexer()
+      with e -> (error_count := !error_count + 1;
+      let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
+      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    let _ = try public_expr_xx_lexer()
+      with e -> (error_count := !error_count + 1;
+      let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
+      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+
+
   (*********************************)
   (**** Test cases for parsing *****)
   (*********************************)
@@ -723,6 +1022,6 @@ let main () =
     Printf.eprintf "there was an error: %s %s\n" msg stack) in
 
   if !error_count = 0 then  Printf.printf ("Passed all testcases.\n")
-  else Printf.printf ("%d out of 63 programming questions are incorrect.\n") (!error_count)
+  else Printf.printf ("%d out of 94 programming questions are incorrect.\n") (!error_count)
 
 let _ = main()
