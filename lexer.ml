@@ -63,12 +63,12 @@ let re_fun = Str.regexp "fun";;
 let re_arrow = Str.regexp "->";;
 let re_pos_int = Str.regexp "[0-9]+";;
 let re_neg_int = Str.regexp "(-[0-9]+)";;
-let re_bool = Str.regexp "(true\\|false)";;
+let re_true = Str.regexp "true";;
+let re_false = Str.regexp "false";;
 let re_string = Str.regexp "\"[^\"]*\"";;
 let re_id = Str.regexp "[a-zA-Z][a-zA-Z0-9]*";;
 let re_double_semi = Str.regexp ";;";;
 let re_whitespace = Str.regexp "[ \t\n]+";;
-let negative_num = Str.regexp "-[0-9]+"
 
 (* Part 1: Lexer - IMPLEMENT YOUR CODE BELOW *)
 
