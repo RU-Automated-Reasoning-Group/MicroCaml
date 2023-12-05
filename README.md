@@ -438,7 +438,7 @@ If a variable does not appear in its typing environment, raise `UndefinedVar` ex
 ```
 G; x: a |- u ==> e, t, q               (for fresh a, b)
 --------------------------------------------------------------------  
-G |- (fun x -> u) ==> (fun x -> e : (a -> b)), a -> b, q @ [(t = b)]
+G |- (fun x -> u) ==> (fun x -> e : (a -> b)), a -> b, q @ [(t, b)]
 ```
 
 See the above example on the anonymous function `fun x -> x 1` for how this rule executes. We have `gen [] (Fun ("x", FunctionCall (ID "x", Int 1))) = AFun("x", AFunctionCall(AID("x", T "a"), AInt(1, TNum), T "c"), TFun(T "a", T "b")), TFun(T "a", T "b"), [(T "a", TFun(TNum, T "c")); (T "c", T "b")]`. The typing constraints `[a = (int -> c); c = b]` are explained above.
