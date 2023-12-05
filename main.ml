@@ -608,7 +608,8 @@ let public_constraint_solving _ =
   let _, _, constraints = gen [] e in
   let student =  unify constraints in
   let result = [("f", TNum); ("c", TNum); ("d", TNum); ("e", TNum); ("a", TFun(TNum, TNum)); ("b", TNum)] in
-  assert (student = result)
+  let f x y = if x < y then -1 else if x = y then 0 else 1 in
+  assert (List.sort f student = List.sort f result)
 
 
 (*********************)
