@@ -544,7 +544,7 @@ The solution to the typing constraints is
 ```
 [("a", TFun(TNum, T"b")); ("c", T "b")]
 ```
-Intuitively, this solution is a substitution `[int->b/a, b/c]`. Applying this substitution to the typing constraints mentioned above would render the left-hand side and right-hand side of each constraint equivalent. With this solution, we have the type of `fun x -> x 1` as `(int -> b) -> b`. The pretty printer.
+Intuitively, this solution is a substitution `[int->b/a, b/c]`. Applying this substitution to the typing constraints mentioned above would render the left-hand side and right-hand side of each constraint equivalent. With this solution, we have the type of `fun x -> x 1` as `(int -> b) -> b`.
 
 We have already provided you a working implementation of `unify` in [infer.ml](./infer.ml). Please read the comment associated with `unify` in the code to understand how it executes. The implementation is similar to the pseudocode presented in [lecture13][lecture13]. Reviewing the examples covered in [lecture13][lecture13] would be beneficial.
 
