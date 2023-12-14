@@ -629,134 +629,134 @@ let main () =
   let _ = try public_expr_simple_equal_type()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 63: %s %s\n" msg stack) in
   let _ = try public_expr_simple_concat_type()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 64: %s %s\n" msg stack) in
   let _ = try public_expr_simple_div_type()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 65: %s %s\n" msg stack) in
   let _ =  try public_expr_simple_mult_type()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 66: %s %s\n" msg stack) in
   let _ = try public_expr_simple_sub_type()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 67: %s %s\n" msg stack) in
   let _ = try public_expr_simple_sum_type()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 68: %s %s\n" msg stack) in
   let _ = try public_expr_single_and_type()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 69: %s %s\n" msg stack) in
   let _ = try public_expr_single_bool_type()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 70: %s %s\n" msg stack) in
   let _ = try public_expr_single_fun_type()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 71: %s %s\n" msg stack) in
   let _ = try public_expr_single_if_type()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 72: %s %s\n" msg stack) in
   let _ = try public_expr_single_let_type()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 73: %s %s\n" msg stack) in
   let _ = try public_expr_single_notequal_type()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 74: %s %s\n" msg stack) in
   let _ = try public_expr_single_not_type()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 75: %s %s\n" msg stack) in
   let _ = try public_expr_single_number_type()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 76: %s %s\n" msg stack) in
   let _ = try public_expr_single_or_type()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 77: %s %s\n" msg stack) in
   let _ = try public_expr_single_string_type()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 78: %s %s\n" msg stack) in
 
   let _ = try public_expr_add1_type()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 79: %s %s\n" msg stack) in
   let _ = try public_expr_apply_type()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 80: %s %s\n" msg stack) in
   let _ = try public_expr_double_fun_type()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 81: %s %s\n" msg stack) in
   let _ = try public_expr_let_if_type()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 82: %s %s\n" msg stack) in
   let _ = try public_expr_let_fun_type()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 83: %s %s\n" msg stack) in
   let _ = try public_expr_minus_one_type()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 84: %s %s\n" msg stack) in
   let _ = try public_expr_nested_let_type()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 85: %s %s\n" msg stack) in
   let _ = try public_expr_sub1_type()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 86: %s %s\n" msg stack) in
   let _ = try public_expr_fact_type()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 87: %s %s\n" msg stack) in
 
   let _ = try public_expr_ho_type()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 88: %s %s\n" msg stack) in
   let _ = try public_expr_ho2_type()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 89: %s %s\n" msg stack) in
   let _ = try public_expr_ho3_type()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 90: %s %s\n" msg stack) in
   let _ = try public_expr_hoapp_type()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 91: %s %s\n" msg stack) in
   let _ = try public_expr_hoapp2_type()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 92: %s %s\n" msg stack) in
   let _ = try public_expr_xx_type()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 93: %s %s\n" msg stack) in
 
   let _ = try public_constraint_solving()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 94: %s %s\n" msg stack) in
 
 
     (*********************************)
@@ -766,129 +766,129 @@ let main () =
     let _ = try public_expr_simple_equal_lexer()
       with e -> (error_count := !error_count + 1;
       let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+      Printf.eprintf "there was an error 1: %s %s\n" msg stack) in
     let _ = try public_expr_simple_concat_lexer()
       with e -> (error_count := !error_count + 1;
       let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+      Printf.eprintf "there was an error 2: %s %s\n" msg stack) in
     let _ = try public_expr_simple_div_lexer()
       with e -> (error_count := !error_count + 1;
       let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+      Printf.eprintf "there was an error 3: %s %s\n" msg stack) in
     let _ = try public_expr_simple_mult_lexer()
       with e -> (error_count := !error_count + 1;
       let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+      Printf.eprintf "there was an error 4: %s %s\n" msg stack) in
     let _ = try public_expr_simple_sub_lexer()
       with e -> (error_count := !error_count + 1;
       let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+      Printf.eprintf "there was an error 5: %s %s\n" msg stack) in
     let _ = try public_expr_simple_sum_lexer()
       with e -> (error_count := !error_count + 1;
       let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+      Printf.eprintf "there was an error 6: %s %s\n" msg stack) in
     let _ = try public_expr_single_and_lexer()
       with e -> (error_count := !error_count + 1;
       let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+      Printf.eprintf "there was an error 7: %s %s\n" msg stack) in
     let _ = try public_expr_single_bool_lexer()
       with e -> (error_count := !error_count + 1;
       let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+      Printf.eprintf "there was an error 8: %s %s\n" msg stack) in
     let _ = try public_expr_single_fun_lexer()
       with e -> (error_count := !error_count + 1;
       let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+      Printf.eprintf "there was an error 9: %s %s\n" msg stack) in
     let _ = try public_expr_single_if_lexer()
       with e -> (error_count := !error_count + 1;
       let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+      Printf.eprintf "there was an error 10: %s %s\n" msg stack) in
     let _ = try public_expr_single_let_lexer()
       with e -> (error_count := !error_count + 1;
       let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+      Printf.eprintf "there was an error 11: %s %s\n" msg stack) in
     let _ = try public_expr_single_notequal_lexer()
       with e -> (error_count := !error_count + 1;
       let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+      Printf.eprintf "there was an error 12: %s %s\n" msg stack) in
     let _ = try public_expr_single_not_lexer()
       with e -> (error_count := !error_count + 1;
       let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+      Printf.eprintf "there was an error 13: %s %s\n" msg stack) in
     let _ = try public_expr_single_number_lexer()
       with e -> (error_count := !error_count + 1;
       let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+      Printf.eprintf "there was an error 14: %s %s\n" msg stack) in
     let _ = try public_expr_single_or_lexer()
       with e -> (error_count := !error_count + 1;
       let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+      Printf.eprintf "there was an error 15: %s %s\n" msg stack) in
     let _ = try public_expr_single_string_lexer()
       with e -> (error_count := !error_count + 1;
       let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+      Printf.eprintf "there was an error 16: %s %s\n" msg stack) in
 
     let _ = try public_expr_add1_lexer()
       with e -> (error_count := !error_count + 1;
       let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+      Printf.eprintf "there was an error 17: %s %s\n" msg stack) in
     let _ = try public_expr_apply_lexer()
       with e -> (error_count := !error_count + 1;
       let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+      Printf.eprintf "there was an error 18: %s %s\n" msg stack) in
     let _ = try public_expr_double_fun_lexer()
       with e -> (error_count := !error_count + 1;
       let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+      Printf.eprintf "there was an error 19: %s %s\n" msg stack) in
     let _ = try public_expr_let_if_lexer()
       with e -> (error_count := !error_count + 1;
       let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+      Printf.eprintf "there was an error 20: %s %s\n" msg stack) in
     let _ = try public_expr_let_fun_lexer()
       with e -> (error_count := !error_count + 1;
       let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+      Printf.eprintf "there was an error 21: %s %s\n" msg stack) in
     let _ = try public_expr_minus_one_lexer()
       with e -> (error_count := !error_count + 1;
       let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+      Printf.eprintf "there was an error 22: %s %s\n" msg stack) in
     let _ = try public_expr_nested_let_lexer()
       with e -> (error_count := !error_count + 1;
       let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+      Printf.eprintf "there was an error 23: %s %s\n" msg stack) in
     let _ = try public_expr_sub1_lexer()
       with e -> (error_count := !error_count + 1;
       let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+      Printf.eprintf "there was an error 24: %s %s\n" msg stack) in
     let _ = try public_expr_fact_lexer()
       with e -> (error_count := !error_count + 1;
       let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+      Printf.eprintf "there was an error 25: %s %s\n" msg stack) in
 
     let _ = try public_expr_ho_lexer()
       with e -> (error_count := !error_count + 1;
       let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+      Printf.eprintf "there was an error 26: %s %s\n" msg stack) in
     let _ = try public_expr_ho2_lexer()
       with e -> (error_count := !error_count + 1;
       let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+      Printf.eprintf "there was an error 27: %s %s\n" msg stack) in
     let _ = try public_expr_ho3_lexer()
       with e -> (error_count := !error_count + 1;
       let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+      Printf.eprintf "there was an error 28: %s %s\n" msg stack) in
     let _ = try public_expr_hoapp_lexer()
       with e -> (error_count := !error_count + 1;
       let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+      Printf.eprintf "there was an error 29: %s %s\n" msg stack) in
     let _ = try public_expr_hoapp2_lexer()
       with e -> (error_count := !error_count + 1;
       let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+      Printf.eprintf "there was an error 30: %s %s\n" msg stack) in
     let _ = try public_expr_xx_lexer()
       with e -> (error_count := !error_count + 1;
       let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-      Printf.eprintf "there was an error: %s %s\n" msg stack) in
+      Printf.eprintf "there was an error 31: %s %s\n" msg stack) in
 
 
   (*********************************)
@@ -898,129 +898,129 @@ let main () =
   let _ = try public_expr_simple_equal()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 32: %s %s\n" msg stack) in
   let _ = try public_expr_simple_concat()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 33: %s %s\n" msg stack) in
   let _ = try public_expr_simple_div()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 34: %s %s\n" msg stack) in
   let _ = try public_expr_simple_mult()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 35: %s %s\n" msg stack) in
   let _ = try public_expr_simple_sub()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 36: %s %s\n" msg stack) in
   let _ = try public_expr_simple_sum()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 37: %s %s\n" msg stack) in
   let _ = try public_expr_single_and()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 38: %s %s\n" msg stack) in
   let _ = try public_expr_single_bool()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 39: %s %s\n" msg stack) in
   let _ = try public_expr_single_fun()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 40: %s %s\n" msg stack) in
   let _ = try public_expr_single_if()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 41: %s %s\n" msg stack) in
   let _ = try public_expr_single_let()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 42: %s %s\n" msg stack) in
   let _ = try public_expr_single_notequal()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 43: %s %s\n" msg stack) in
   let _ = try public_expr_single_not()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 44: %s %s\n" msg stack) in
   let _ = try public_expr_single_number()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 45: %s %s\n" msg stack) in
   let _ = try public_expr_single_or()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 46: %s %s\n" msg stack) in
   let _ = try public_expr_single_string()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 47: %s %s\n" msg stack) in
 
   let _ = try public_expr_add1()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 48: %s %s\n" msg stack) in
   let _ = try public_expr_apply()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 49: %s %s\n" msg stack) in
   let _ = try public_expr_double_fun()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 50: %s %s\n" msg stack) in
   let _ = try public_expr_let_if()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 51: %s %s\n" msg stack) in
   let _ = try public_expr_let_fun()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 52: %s %s\n" msg stack) in
   let _ = try public_expr_minus_one()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 53: %s %s\n" msg stack) in
   let _ = try public_expr_nested_let()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 54: %s %s\n" msg stack) in
   let _ = try public_expr_sub1()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 55: %s %s\n" msg stack) in
   let _ = try public_expr_fact()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 56: %s %s\n" msg stack) in
 
   let _ = try public_expr_ho()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 57: %s %s\n" msg stack) in
   let _ = try public_expr_ho2()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 58: %s %s\n" msg stack) in
   let _ = try public_expr_ho3()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 59: %s %s\n" msg stack) in
   let _ = try public_expr_hoapp()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 60: %s %s\n" msg stack) in
   let _ = try public_expr_hoapp2()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 61: %s %s\n" msg stack) in
   let _ = try public_expr_xx()
     with e -> (error_count := !error_count + 1;
     let msg = Printexc.to_string e and stack = Printexc.get_backtrace () in
-    Printf.eprintf "there was an error: %s %s\n" msg stack) in
+    Printf.eprintf "there was an error 62: %s %s\n" msg stack) in
 
   if !error_count = 0 then  Printf.printf ("Passed all testcases.\n")
   else Printf.printf ("%d out of 94 programming questions are incorrect.\n") (!error_count)
