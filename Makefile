@@ -11,4 +11,4 @@ clean:
     done
 
 frontend: $(SOURCES)
-	ocamlc -o frontend -I +str str.cma $(SOURCES)
+	ocamlc -o frontend -g -I +str str.cma $(SOURCES)
