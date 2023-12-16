@@ -515,7 +515,7 @@ G; f: a |- u1 ==> e1, t1, q1   G; f: t1 |- u2 ==> e2, t2, q2  (for fresh a)
 G |- (let rec f = u1 in u2) ==> (let rec f = e1 in e2: t2), t2, q1 @ [(a, t1)] @ q2  
 ```
 
-The second rule above is for typing recursive functions e.g. `let rec f = fun x -> if x <= 0 then 1 else x * f(x-1) in f 5`. When type checking for `u1`, it is important to add to the type environment a type for `f`. This is because `f` can be recursively used in `u1`. Since we do not know the type of `f` initially, we annotate it with an unknown type `a` and build constraints over it. When type checking `u2`, it is also necessary to extend the typing environment with `(x: t1)` as `x` may be used in `u2`.
+The second rule above is for typing recursive functions e.g. `let rec f = fun x -> if x <= 0 then 1 else x * f(x-1) in f 5`. When type checking for `u1`, it is important to add to the type environment a type for `f`. This is because `f` can be recursively used in `u1`. Since we do not know the type of `f` initially, we annotate it with an unknown type `a` and build constraints over it. When type checking `u2`, it is also necessary to extend the typing environment with `(f: t1)` as `f` may be used in `u2`.
 
 ### Typing Constraint Solver
 
