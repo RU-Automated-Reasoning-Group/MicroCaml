@@ -510,7 +510,7 @@ G |- (let x = u1 in u2) ==> (let x = e1 in e2: t2), t2, q1 @ q2
 ```
 
 ```
-G; f: a |- u1 ==> e1, t1, q1   G; x: t1 |- u2 ==> e2, t2, q2  (for fresh a)
+G; f: a |- u1 ==> e1, t1, q1   G; f: t1 |- u2 ==> e2, t2, q2  (for fresh a)
 -----------------------------------------------------------------------------------
 G |- (let rec f = u1 in u2) ==> (let rec f = e1 in e2: t2), t2, q1 @ [(a, t1)] @ q2  
 ```
