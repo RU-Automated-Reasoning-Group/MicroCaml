@@ -606,8 +606,20 @@ let public_expr_xx_type _ =
   with OccursCheckException -> (type_variable := (Char.code 'a')) | _ -> (type_variable := (Char.code 'a'); assert (1 = 0))
 
 let public_constraint_solving _ =
-  let e = (FunctionCall(Fun("x", FunctionCall(ID "x", Int 1)), Fun("x", Binop(Add, ID "x", Int 1)))) in
-  let _, _, constraints = gen [] e in
+  (*a = (int -> c)
+  c = b
+  d = int
+  int = int
+  int = e
+  (a -> b) = ((d -> e) -> f)*)
+  let constraints = [
+    (T "a", TFun(TNum, T "c"));
+    (T "c", T "b");
+    (T "d", TNum);
+    (TNum, TNum);
+    (TNum, T "e");
+    (TFun(T "a", T "b"), TFun(TFun(T "d", T "e"), T "f"))
+  ] in
   let student =  unify constraints in
   let result = [("f", TNum); ("c", TNum); ("d", TNum); ("e", TNum); ("a", TFun(TNum, TNum)); ("b", TNum)] in
   let f x y = if x < y then -1 else if x = y then 0 else 1 in
